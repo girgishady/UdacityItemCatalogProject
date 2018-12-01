@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>New Tool Item</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='basic.css') }}">
+	</head>
+	<body>
+		<div class="row banner main " >
+			<img class="mr-3" src="http://localhost:5000/static/img/Sports-Banner.jpg" alt="Generic placeholder image">
+		</div>
+		<div class="row banner menu">
+			<div class="col-md-11 col-md-offset-1 padding-none">
+				<h1>New Tool Item</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-1 padding-top">
+				<form action="#" method = "post">
+					<div class="form-group">
+						<label for="name">Name:</label>
+						<input type ="text" maxlength="50" class="form-control" name="name"placeholder="Name of the item">
+
+						<label for="description">Description:</label>
+						<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the item"></textarea>
+						
+						<label for="category_id">category:</label>
+						<select name="category_id" id = "category_id">
+							<option value="">--Please choose a category--</option>
+							{% for category in categories %}
+								<option value="{{category.id}}">{{category.name}}</option>
+							{% endfor %}
+						</select>
+						<button type="submit" class="btn btn-default" id="submit" type="submit">
+						<span class="icon" aria-hidden="true"></span>Create</button>
+					</div>
+				</form>
+			</div>
+		</div>
